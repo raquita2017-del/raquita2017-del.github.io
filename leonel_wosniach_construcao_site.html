@@ -1,0 +1,434 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap');
+:root {
+  --brand: #1a3c2e;
+  --brand-mid: #2d6a4f;
+  --brand-light: #40916c;
+  --accent: #d4a017;
+  --accent-light: #f4c842;
+  --text-dark: #1a1a1a;
+  --text-muted: #555;
+  --bg-light: #f9f7f4;
+  --bg-section: #f2efe8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; color: var(--text-dark); }
+.site-wrap { max-width: 900px; margin: 0 auto; background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; }
+
+/* NAV */
+.nav { background: var(--brand); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+.nav-logo { font-family: 'Playfair Display', serif; color: white; font-size: 17px; letter-spacing: 0.5px; line-height: 1.2; }
+.nav-logo span { color: var(--accent-light); display: block; font-size: 11px; font-family: 'DM Sans', sans-serif; letter-spacing: 2px; font-weight: 300; text-transform: uppercase; }
+.nav-links { display: flex; gap: 20px; }
+.nav-links a { color: rgba(255,255,255,0.8); font-size: 13px; cursor: pointer; text-decoration: none; transition: color 0.2s; font-weight: 400; }
+.nav-links a:hover { color: var(--accent-light); }
+
+/* HERO */
+.hero { background: var(--brand); padding: 3.5rem 2rem 3rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; right: -60px; top: -60px; width: 300px; height: 300px; border-radius: 50%; background: rgba(64,145,108,0.15); }
+.hero::after { content: ''; position: absolute; right: 40px; bottom: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(212,160,23,0.1); }
+.hero-tag { display: inline-block; background: var(--accent); color: var(--brand); font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.2rem; }
+.hero h1 { font-family: 'Playfair Display', serif; color: white; font-size: 36px; line-height: 1.2; max-width: 500px; margin-bottom: 1rem; }
+.hero h1 em { color: var(--accent-light); font-style: normal; }
+.hero-sub { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.6; max-width: 440px; margin-bottom: 1.8rem; font-weight: 300; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { background: var(--accent); color: var(--brand); border: none; padding: 12px 24px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); padding: 12px 24px; border-radius: 6px; font-size: 14px; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 400; }
+.hero-badges { display: flex; gap: 16px; margin-top: 2rem; flex-wrap: wrap; }
+.badge { background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 6px; color: rgba(255,255,255,0.85); font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; }
+
+/* STATS */
+.stats { background: var(--accent); padding: 1.2rem 2rem; display: flex; gap: 0; }
+.stat { flex: 1; text-align: center; border-right: 1px solid rgba(26,60,46,0.2); }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--brand); font-weight: 700; }
+.stat-label { font-size: 11px; color: rgba(26,60,46,0.7); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+/* SECTIONS */
+.section { padding: 2.5rem 2rem; }
+.section-alt { background: var(--bg-light); }
+.section-dark { background: var(--brand); }
+.section-tag { font-size: 11px; color: var(--brand-light); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; margin-bottom: 0.5rem; }
+.section-tag-white { font-size: 11px; color: var(--accent-light); letter-spacing: 2px; text-transform: uppercase; font-weight: 500; margin-bottom: 0.5rem; }
+.section h2 { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--brand); margin-bottom: 1rem; line-height: 1.25; }
+.section-dark h2 { color: white; }
+.section p { color: var(--text-muted); font-size: 14px; line-height: 1.7; margin-bottom: 0.8rem; }
+.section-dark p { color: rgba(255,255,255,0.7); }
+
+/* SERVICES GRID */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 1.5rem; }
+.service-card { background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.2rem; }
+.service-icon { width: 40px; height: 40px; border-radius: 10px; background: #e8f5f0; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem; }
+.service-icon svg { width: 20px; height: 20px; }
+.service-card h3 { font-size: 14px; font-weight: 500; color: var(--brand); margin-bottom: 0.4rem; }
+.service-card p { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+
+/* PORTFOLIO */
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 1.5rem; }
+.portfolio-item { border-radius: 8px; overflow: hidden; position: relative; aspect-ratio: 4/3; }
+.portfolio-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; }
+.p1 { background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%); color: #1b5e20; }
+.p2 { background: linear-gradient(135deg, #b2dfdb 0%, #80cbc4 100%); color: #004d40; }
+.p3 { background: linear-gradient(135deg, #dce775 0%, #c6e57d 100%); color: #33691e; }
+.p4 { background: linear-gradient(135deg, #ffe082 0%, #ffd54f 100%); color: #e65100; }
+.p5 { background: linear-gradient(135deg, #bcaaa4 0%, #a1887f 100%); color: #3e2723; }
+.p6 { background: linear-gradient(135deg, #b0bec5 0%, #90a4ae 100%); color: #263238; }
+.portfolio-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(26,60,46,0.85); color: white; font-size: 11px; padding: 6px 10px; }
+
+/* VALUES */
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 1.5rem; }
+.value-card { background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.15); border-radius: var(--border-radius-lg); padding: 1.2rem; }
+.value-num { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--accent-light); font-weight: 700; margin-bottom: 0.4rem; }
+.value-card h3 { font-size: 13px; font-weight: 500; color: white; margin-bottom: 0.3rem; }
+.value-card p { font-size: 12px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.5; }
+
+/* FORM */
+.orcamento-form { background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.5rem; margin-top: 1.5rem; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.form-group { display: flex; flex-direction: column; gap: 4px; }
+.form-group label { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.form-group input, .form-group select, .form-group textarea { border: 0.5px solid var(--color-border-secondary); border-radius: 6px; padding: 8px 12px; font-size: 13px; font-family: 'DM Sans', sans-serif; color: var(--text-dark); background: var(--bg-light); outline: none; }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-submit { background: var(--brand); color: white; border: none; padding: 12px 28px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: 'DM Sans', sans-serif; width: 100%; margin-top: 4px; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 1.5rem; }
+.contact-card { background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.2rem; display: flex; align-items: flex-start; gap: 12px; }
+.contact-icon { width: 36px; height: 36px; border-radius: 8px; background: #e8f5f0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.contact-icon svg { width: 18px; height: 18px; }
+.contact-card h4 { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+.contact-card p { font-size: 13px; color: var(--brand); font-weight: 500; margin: 0; }
+
+/* SEO BOX */
+.seo-box { background: var(--bg-section); border: 0.5px solid var(--color-border-tertiary); border-left: 3px solid var(--brand-light); border-radius: 0 8px 8px 0; padding: 1rem 1.2rem; margin-top: 1.5rem; }
+.seo-box h4 { font-size: 13px; font-weight: 500; color: var(--brand); margin-bottom: 0.6rem; }
+.seo-keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+.kw { background: white; border: 0.5px solid #c5d9cf; padding: 4px 10px; border-radius: 20px; font-size: 12px; color: var(--brand-mid); }
+
+/* DOMAIN BOX */
+.domain-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem; }
+.domain { background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: 6px; padding: 8px 14px; font-size: 13px; }
+.domain strong { color: var(--brand); display: block; font-size: 14px; font-weight: 500; }
+.domain span { font-size: 11px; color: var(--text-muted); }
+
+/* SLOGAN BOX */
+.slogan-list { margin-top: 1rem; display: flex; flex-direction: column; gap: 8px; }
+.slogan-item { background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; }
+.slogan-star { color: var(--accent); font-size: 14px; }
+.slogan-item p { font-size: 13px; font-style: italic; color: var(--brand); margin: 0; font-weight: 500; }
+
+/* IMAGE IDEAS */
+.img-ideas { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 1rem; }
+.img-idea { background: white; border: 0.5px solid var(--color-border-tertiary); border-radius: 8px; padding: 10px 14px; }
+.img-idea h5 { font-size: 12px; font-weight: 500; color: var(--brand); margin-bottom: 3px; }
+.img-idea p { font-size: 12px; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+/* TABS */
+.tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); margin-bottom: 0; overflow-x: auto; }
+.tab { padding: 12px 18px; font-size: 13px; cursor: pointer; color: var(--text-muted); border-bottom: 2px solid transparent; white-space: nowrap; font-family: 'DM Sans', sans-serif; background: none; border-top: none; border-left: none; border-right: none; font-weight: 400; }
+.tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 500; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* FOOTER */
+.footer { background: #111; padding: 1.5rem 2rem; text-align: center; }
+.footer p { font-size: 12px; color: rgba(255,255,255,0.4); }
+.footer strong { color: rgba(255,255,255,0.7); }
+</style>
+
+<div class="site-wrap">
+  <nav class="nav">
+    <div class="nav-logo">Leonel Wosniach<span>Construção & Remodelação</span></div>
+    <div class="nav-links">
+      <a onclick="showTab('inicio')">Início</a>
+      <a onclick="showTab('sobre')">Sobre</a>
+      <a onclick="showTab('servicos')">Serviços</a>
+      <a onclick="showTab('portfolio')">Portfolio</a>
+      <a onclick="showTab('orcamento')">Orçamento</a>
+      <a onclick="showTab('estrategia')">Estratégia</a>
+    </div>
+  </nav>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('inicio')">Início</button>
+    <button class="tab" onclick="showTab('sobre')">Sobre nós</button>
+    <button class="tab" onclick="showTab('servicos')">Serviços</button>
+    <button class="tab" onclick="showTab('portfolio')">Portfolio</button>
+    <button class="tab" onclick="showTab('orcamento')">Orçamento</button>
+    <button class="tab" onclick="showTab('estrategia')">SEO & Domínio</button>
+  </div>
+
+  <!-- INÍCIO -->
+  <div id="tab-inicio" class="tab-content active">
+    <div class="hero">
+      <div class="hero-tag">Mafra · Lisboa · Ericeira · Malveira</div>
+      <h1>A sua casa merece um acabamento <em>impecável.</em></h1>
+      <p class="hero-sub">Remodelação de casas de banho e vivendas com qualidade profissional, materiais de excelência e mais de 10 anos de experiência em Portugal.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showTab('orcamento')">Pedir orçamento grátis</button>
+        <button class="btn-outline" onclick="showTab('portfolio')">Ver trabalhos realizados</button>
+      </div>
+      <div class="hero-badges">
+        <div class="badge"><div class="badge-dot"></div>Orçamento sem compromisso</div>
+        <div class="badge"><div class="badge-dot"></div>Zona de Mafra e arredores</div>
+        <div class="badge"><div class="badge-dot"></div>Mais de 150 projetos concluídos</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">+10</div><div class="stat-label">Anos experiência</div></div>
+      <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Projetos concluídos</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Clientes satisfeitos</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Concelhos servidos</div></div>
+    </div>
+    <div class="section section-alt">
+      <div class="section-tag">Especialidade</div>
+      <h2>Remodelação de casas de banho</h2>
+      <p>Transformamos a sua casa de banho num espaço moderno, funcional e elegante. Do projeto à entrega final, tratamos de tudo: azulejos, canalização, sanitários, iluminação e acabamentos.</p>
+      <p>Trabalhamos com as melhores marcas do mercado e garantimos prazos rigorosos. A sua casa de banho nova começa com um simples telefonema.</p>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <div id="tab-sobre" class="tab-content">
+    <div class="section">
+      <div class="section-tag">Quem somos</div>
+      <h2>Leonel Davi Wosniach — Construtor de confiança</h2>
+      <p>Com mais de uma década de experiência na área da construção e remodelação, Leonel Wosniach é um profissional reconhecido na região de Mafra e arredores pela qualidade do seu trabalho e pela seriedade com que trata cada projeto.</p>
+      <p>Especializado em remodelação de casas de banho e renovação de vivendas, Leonel acompanha cada obra pessoalmente — do planeamento inicial até ao último acabamento — garantindo que o resultado final supera sempre as expectativas do cliente.</p>
+      <p>A empresa atua nos concelhos de Mafra, Sintra, Ericeira, Malveira, Torres Vedras e toda a área metropolitana de Lisboa.</p>
+    </div>
+    <div class="section-dark section">
+      <div class="section-tag-white">Os nossos valores</div>
+      <h2>O que nos distingue</h2>
+      <div class="values-grid">
+        <div class="value-card"><div class="value-num">01</div><h3>Qualidade</h3><p>Materiais selecionados e técnicas comprovadas para um resultado duradouro.</p></div>
+        <div class="value-card"><div class="value-num">02</div><h3>Confiança</h3><p>Pontualidade, transparência nos orçamentos e cumprimento de prazos.</p></div>
+        <div class="value-card"><div class="value-num">03</div><h3>Acabamento perfeito</h3><p>Cada detalhe é tratado com rigor. A obra só termina quando ficamos satisfeitos.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <div id="tab-servicos" class="tab-content">
+    <div class="section">
+      <div class="section-tag">O que fazemos</div>
+      <h2>Serviços de construção e remodelação</h2>
+      <p>Oferecemos soluções completas para transformar a sua casa. Desde uma simples reparação até à remodelação total de uma vivenda, temos a experiência e os meios para realizar o seu projeto.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+          <h3>Remodelação completa de casas de banho</h3>
+          <p>Do azulejo ao sanitário, transformamos a sua casa de banho do zero com design moderno.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21V12h6v9"/></svg>
+          </div>
+          <h3>Azulejos e pavimentos</h3>
+          <p>Aplicação profissional de azulejos, porcelânico, mosaico e pavimentos flutuantes.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12"/></svg>
+          </div>
+          <h3>Canalização e sanitários</h3>
+          <p>Instalação e reparação de tubagens, sanitas, lavatórios, duches e banheiras.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3>Remodelação de vivendas</h3>
+          <p>Renovação de cozinhas, quartos, salas e espaços exteriores com acabamento profissional.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>
+          </div>
+          <h3>Reparações e melhorias</h3>
+          <p>Pinturas, rebocos, impermeabilizações, isolamentos e pequenas obras.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Construção nova</h3>
+          <p>Projetos de construção de raiz em parceria com arquitetos e engenheiros locais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div id="tab-portfolio" class="tab-content">
+    <div class="section">
+      <div class="section-tag">Trabalhos realizados</div>
+      <h2>Portfolio de projetos concluídos</h2>
+      <p>Cada projeto é único. Veja alguns exemplos do nosso trabalho em casas de banho e vivendas na região de Mafra e Lisboa.</p>
+      <div class="portfolio-grid">
+        <div class="portfolio-item p1"><span class="portfolio-label">Casa de banho — Mafra</span></div>
+        <div class="portfolio-item p2"><span class="portfolio-label">WC Suite — Sintra</span></div>
+        <div class="portfolio-item p3"><span class="portfolio-label">Vivenda completa — Ericeira</span></div>
+        <div class="portfolio-item p4"><span class="portfolio-label">Cozinha — Malveira</span></div>
+        <div class="portfolio-item p5"><span class="portfolio-label">Casa de banho — Torres Vedras</span></div>
+        <div class="portfolio-item p6"><span class="portfolio-label">Remodelação — Lisboa</span></div>
+      </div>
+    </div>
+    <div class="section section-alt">
+      <div class="section-tag">Sugestões de imagens</div>
+      <h2>Que fotos usar no seu site</h2>
+      <div class="img-ideas">
+        <div class="img-idea"><h5>Antes e depois</h5><p>Comparações lado a lado de casas de banho antes e depois da remodelação</p></div>
+        <div class="img-idea"><h5>Detalhes de acabamento</h5><p>Close-ups de azulejos, torneiras, sanitários e detalhes de qualidade</p></div>
+        <div class="img-idea"><h5>Processo de obra</h5><p>Fotos durante a construção para transmitir profissionalismo</p></div>
+        <div class="img-idea"><h5>Leonel em obra</h5><p>Foto profissional do Leonel a trabalhar — transmite confiança e credibilidade</p></div>
+        <div class="img-idea"><h5>Casas de banho concluídas</h5><p>Fotos amplas em boa luz natural dos espaços renovados</p></div>
+        <div class="img-idea"><h5>Clientes satisfeitos</h5><p>Fotos com clientes (com permissão) a mostrar o trabalho finalizado</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORÇAMENTO -->
+  <div id="tab-orcamento" class="tab-content">
+    <div class="section">
+      <div class="section-tag">Sem compromisso</div>
+      <h2>Peça o seu orçamento gratuito</h2>
+      <p>Preencha o formulário abaixo e entraremos em contacto em menos de 24 horas para agendar uma visita e apresentar uma proposta personalizada.</p>
+      <div class="orcamento-form">
+        <div class="form-grid">
+          <div class="form-group"><label>Nome completo</label><input type="text" placeholder="O seu nome"/></div>
+          <div class="form-group"><label>Telefone / WhatsApp</label><input type="tel" placeholder="+351 900 000 000"/></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="email@exemplo.pt"/></div>
+          <div class="form-group"><label>Localidade</label><input type="text" placeholder="Mafra, Ericeira, Sintra..."/></div>
+          <div class="form-group"><label>Tipo de trabalho</label>
+            <select>
+              <option>Remodelação de casa de banho</option>
+              <option>Remodelação de vivenda completa</option>
+              <option>Cozinha</option>
+              <option>Azulejos / Pavimentos</option>
+              <option>Canalização</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Prazo pretendido</label>
+            <select>
+              <option>O mais rápido possível</option>
+              <option>1 a 3 meses</option>
+              <option>3 a 6 meses</option>
+              <option>Mais de 6 meses</option>
+            </select>
+          </div>
+          <div class="form-group full"><label>Descrição do projeto</label><textarea placeholder="Descreva brevemente o que precisa: dimensões, materiais desejados, estado atual..."></textarea></div>
+        </div>
+        <button class="form-submit">Enviar pedido de orçamento</button>
+      </div>
+    </div>
+    <div class="section section-alt">
+      <div class="section-tag">Contactos diretos</div>
+      <h2>Fale connosco agora</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.26 4.12 2 2 0 015.24 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L9.91 9.91a16 16 0 006.18 6.18l1.27-1.58a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><h4>Telefone</h4><p>+351 XXX XXX XXX</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <div><h4>WhatsApp</h4><p>+351 XXX XXX XXX</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><h4>Email</h4><p>geral@leonelwosniach.pt</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Zona de atuação</h4><p>Mafra, Ericeira, Sintra, Malveira, Torres Vedras, Lisboa</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTRATÉGIA SEO -->
+  <div id="tab-estrategia" class="tab-content">
+    <div class="section">
+      <div class="section-tag">Nome de domínio</div>
+      <h2>Sugestões de domínio</h2>
+      <div class="domain-box">
+        <div class="domain"><strong>leonelwosniach.pt</strong><span>Mais profissional</span></div>
+        <div class="domain"><strong>lwconstrucao.pt</strong><span>Curto e fácil</span></div>
+        <div class="domain"><strong>remodelacaomafra.pt</strong><span>SEO local forte</span></div>
+        <div class="domain"><strong>wosniachconstrucao.pt</strong><span>Marca pessoal</span></div>
+        <div class="domain"><strong>remodelar-mafra.pt</strong><span>Palavras-chave</span></div>
+      </div>
+    </div>
+    <div class="section section-alt">
+      <div class="section-tag">Slogans sugeridos</div>
+      <h2>Títulos e slogans para atrair clientes</h2>
+      <div class="slogan-list">
+        <div class="slogan-item"><div class="slogan-star">★</div><p>"A casa que imaginou, construída por quem percebe."</p></div>
+        <div class="slogan-item"><div class="slogan-star">★</div><p>"Remodelação em Mafra com qualidade e confiança."</p></div>
+        <div class="slogan-item"><div class="slogan-star">★</div><p>"A sua casa de banho nova começa hoje."</p></div>
+        <div class="slogan-item"><div class="slogan-star">★</div><p>"Do azulejo ao acabamento final — fazemos tudo."</p></div>
+        <div class="slogan-item"><div class="slogan-star">★</div><p>"Mais de 10 anos a transformar casas na região de Lisboa."</p></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-tag">Estratégia SEO local</div>
+      <h2>Como aparecer no Google</h2>
+      <p>Para atrair clientes locais, estas são as principais ações a implementar desde o primeiro dia:</p>
+      <div class="seo-box">
+        <h4>Palavras-chave prioritárias a usar no site</h4>
+        <div class="seo-keywords">
+          <span class="kw">remodelação casa de banho Mafra</span>
+          <span class="kw">construção Mafra</span>
+          <span class="kw">remodelação vivenda Ericeira</span>
+          <span class="kw">empreiteiro Mafra</span>
+          <span class="kw">azulejos casas de banho Lisboa</span>
+          <span class="kw">remodelação casas Torres Vedras</span>
+          <span class="kw">obras casa Malveira</span>
+          <span class="kw">canalização Sintra</span>
+          <span class="kw">remodelação interior Lisboa</span>
+          <span class="kw">empresa construção Mafra</span>
+        </div>
+      </div>
+      <div class="services-grid" style="margin-top:1rem">
+        <div class="service-card">
+          <h3>Google Business Profile</h3>
+          <p>Criar perfil gratuito no Google com fotos, horário, zona de atuação e responder a avaliações. É o passo mais importante para aparecer no mapa do Google.</p>
+        </div>
+        <div class="service-card">
+          <h3>Avaliações Google</h3>
+          <p>Pedir a cada cliente satisfeito uma avaliação de 5 estrelas. 10+ avaliações já fazem grande diferença na visibilidade local.</p>
+        </div>
+        <div class="service-card">
+          <h3>Fotos reais de obra</h3>
+          <p>Publicar regularmente fotos de projetos concluídos com localização marcada. O Google valoriza conteúdo atualizado e local.</p>
+        </div>
+        <div class="service-card">
+          <h3>Meta títulos SEO</h3>
+          <p>Cada página deve ter um título como "Remodelação Casa de Banho em Mafra | Leonel Wosniach" para indexar bem no Google.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p><strong>Leonel Davi Wosniach</strong> — Construção e Remodelação · Mafra, Portugal · Zona de Lisboa e arredores</p>
+  </div>
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const content = document.getElementById('tab-' + name);
+  if (content) content.classList.add('active');
+  const tabs = document.querySelectorAll('.tab');
+  const map = {inicio:0, sobre:1, servicos:2, portfolio:3, orcamento:4, estrategia:5};
+  if (tabs[map[name]]) tabs[map[name]].classList.add('active');
+}
+</script>
