@@ -201,7 +201,7 @@
     <p class="section-tag-light">Sem compromisso</p>
     <h2 class="h2-light">Peça o seu orçamento gratuito</h2>
     <p class="section-intro-light">Preencha o formulário e entraremos em contacto em menos de 24 horas para agendar uma visita e apresentar uma proposta personalizada.</p>
-    <form class="orcamento-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+    <form class="orcamento-form" id="orcamentoForm">
       <div class="form-grid">
         <div class="form-group">
           <label for="nome">Nome completo</label>
@@ -244,7 +244,7 @@
           <textarea id="desc" name="descricao" placeholder="Descreva brevemente o que precisa: dimensões, materiais desejados, estado atual..."></textarea>
         </div>
       </div>
-      <button type="submit" class="btn-submit">Enviar pedido de orçamento</button>
+      <button type="button" class="btn-submit" onclick="enviarOrcamento()">Enviar pedido de orçamento</button>
     </form>
   </div>
 </section>

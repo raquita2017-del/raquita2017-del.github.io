@@ -3,7 +3,6 @@ function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// Close menu on link click
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     document.getElementById('navLinks').classList.remove('open');
@@ -25,17 +24,31 @@ window.addEventListener('scroll', () => {
   });
 });
 
-// Form submission feedback
-const form = document.querySelector('.orcamento-form');
-if (form) {
-  form.addEventListener('submit', function(e) {
-    const btn = form.querySelector('.btn-submit');
-    btn.textContent = 'A enviar...';
-    btn.disabled = true;
-    // Formspree handles the POST; re-enable after 3s as fallback
-    setTimeout(() => {
-      btn.textContent = 'Enviar pedido de orçamento';
-      btn.disabled = false;
-    }, 3000);
-  });
+// Form → mailto
+function enviarOrcamento() {
+  const nome    = document.getElementById('nome').value.trim();
+  const tel     = document.getElementById('tel').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const local   = document.getElementById('local').value.trim();
+  const tipo    = document.getElementById('tipo').value;
+  const prazo   = document.getElementById('prazo').value;
+  const desc    = document.getElementById('desc').value.trim();
+
+  if (!nome || !tel) {
+    alert('Por favor preencha pelo menos o nome e telefone.');
+    return;
+  }
+
+  const assunto = encodeURIComponent('Pedido de Orçamento — ' + tipo);
+  const corpo   = encodeURIComponent(
+    'Nome: ' + nome + '\n' +
+    'Telefone: ' + tel + '\n' +
+    'Email: ' + (email || '—') + '\n' +
+    'Localidade: ' + (local || '—') + '\n' +
+    'Tipo de trabalho: ' + tipo + '\n' +
+    'Prazo pretendido: ' + prazo + '\n\n' +
+    'Descrição:\n' + (desc || '—')
+  );
+
+  window.location.href = 'mailto:leoneldaviwoz@gmail.com?subject=' + assunto + '&body=' + corpo;
 }
